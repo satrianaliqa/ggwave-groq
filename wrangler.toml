@@ -1,0 +1,7 @@
+name = "ggwave-groq"
+compatibility_date = "2024-05-22"
+
+[pages]
+# A folder of static files to upload
+# If you specified "assets" in your Next.js config, you can specify that folder here.
+assets = "public"
