@@ -20,12 +20,18 @@ Boris Starkov: [linkedin](https://www.linkedin.com/in/boris-starkov/), [github](
 
 based on [ggwave](https://github.com/ggerganov/ggwave) library by [Georgi Gerganov](https://github.com/ggerganov) and conversational AI by [ElevenLabs](https://try.elevenlabs.io/gibberlink)
 
-## How it works
-* Two independent conversational [ElevenLabs](https://try.elevenlabs.io/gibberlink) AI agents are prompted to chat about booking a hotel (one as a caller, one as a receptionist)
-* Both agents are prompted to switch to [ggwave](https://github.com/ggerganov/ggwave) data-over-sound protocol when they identify other side as AI, and keep speaking in english otherwise
-* This repository provides API that allows agents to use the protocol
+## How it works (Groq + GGWave version)
+* Komunikasi audio sepenuhnya menggunakan [ggwave](https://github.com/ggerganov/ggwave) data-over-sound protocol
+* AI agent hanya menggunakan Groq Cloud (llama3-8b-8192) — super cepat, tanpa OpenAI/ElevenLabs
+* API sudah siap untuk Cloudflare Pages/Workers deployment
 
-Bonus: you can open the [ggwave web demo](https://waver.ggerganov.com/), play the video above and see all the messages decoded!
+Bonus: buka [ggwave web demo](https://waver.ggerganov.com/), play video di atas, dan lihat semua pesan yang ter-decode!
 
-## How to repro
-https://github.com/PennyroyalTea/gibberlink/wiki/Repro-steps-for-demo
+## Cara deploy ke Cloudflare Pages/Workers
+1. Clone repo ini
+2. Copy `.env.example` ke `.env` dan isi `GROQ_API_KEY` dengan API key Groq kamu
+3. Jalankan `npm install`
+4. Build: `npm run build`
+5. Deploy: `npm run pages:deploy`
+
+Semua komunikasi AI hanya lewat Groq, audio lewat GGWave, tanpa OpenAI/ElevenLabs sama sekali.

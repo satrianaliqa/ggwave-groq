@@ -14,7 +14,7 @@ export async function GET(request: NextRequest) {
 
     try {
         const response = await fetch(
-            `https://api.elevenlabs.io/v1/convai/conversation/get_signed_url?agent_id=${agentId}`,
+            '', // ElevenLabs removed, not used in Groq-only version
             {
                 method: 'GET',
                 headers: {

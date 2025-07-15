@@ -1,5 +1,5 @@
 import Groq from 'groq-sdk'
-import { NextResponse }s from 'next/server'
+import { NextResponse } from 'next/server'
 
 const groq = new Groq({
   apiKey: process.env.GROQ_API_KEY
@@ -10,7 +10,6 @@ export async function POST(req: Request) {
     const { messages } = await req.json()
     
     const completion = await groq.chat.completions.create({
-      // Model super cepat sesuai request lo!
       model: 'llama3-8b-8192',
       messages,
       temperature: 0.7,
